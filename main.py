@@ -5,10 +5,11 @@ from asteroid import Asteroid
 from asteroidfeild import AsteroidField
 
 def main():
+    # Initialize Pygame, screen and clock
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
-
+    # Create sprite groups and set up containers
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
@@ -17,9 +18,9 @@ def main():
     Asteroid.containers = (updatable, drawable, asteroids)
     AsteroidField.containers = (updatable)
     asteroid_field = AsteroidField()
-    
+    #initialize player in middle of the screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-
+    # Game loop
     dt = 0
 
     while True:
@@ -39,6 +40,6 @@ def main():
         # limit the framerate to 60 FPS
         dt = clock.tick(60) / 1000
 
-
+#call main function
 if __name__ == "__main__":
     main()
